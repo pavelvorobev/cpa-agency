@@ -1,0 +1,6 @@
+/* Глобальные стили */
+@use './normalize.scss';
+
+body {
+  background-color: $color-secondary;
+}
