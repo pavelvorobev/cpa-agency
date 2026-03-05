@@ -1,6 +1,4 @@
-# .
-
-Team pet project
+# Team pet project
 
 ## Project Setup
 
