@@ -1,6 +1,7 @@
 /* Глобальные стили */
 @use './normalize.scss';
 @use './fonts.scss';
+@use './typography.scss';
 
 body {
   font-family: 'Halvar Breitschrift', Arial, sans-serif;
