@@ -63,10 +63,12 @@ const httpClient = ({ baseURL, defaultHeaders }: HttpConfig): HttpClient => {
 }
 
 const baseURL = import.meta.env.VITE_API_BASE_URL
+const xApiKey = import.meta.env.VITE_X_API_KEY
+
 const defaultHeaders = {
   Accept: 'application/json',
   'Content-Type': 'application/json',
-  'x-api-key': 'prodcpakey333',
+  'x-api-key': xApiKey,
 } as const
 
 const http = httpClient({ baseURL, defaultHeaders })
