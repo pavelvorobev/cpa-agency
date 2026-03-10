@@ -1,7 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from './ui/layout-parts/Header.vue';
+
+</script>
 
 <template>
-  <h1>CPA AGENCY</h1>
+  <Header />
 </template>
 
 <style scoped lang="scss">
