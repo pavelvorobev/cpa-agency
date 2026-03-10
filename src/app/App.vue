@@ -3,12 +3,13 @@ import { http } from '@/common/api/http'
 import { onMounted } from 'vue'
 
 onMounted(async () => {
-  const response = await http.fetchFull({
-    method: 'GET',
-    url: '/en/multiply',
-  })
+  try {
+    const { data } = await http.get('/en/multiply')
 
-  console.log(response)
+    console.log(data)
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
 })
 </script>
 
