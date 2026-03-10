@@ -13,7 +13,7 @@
   }
   
   @media (hover: hover) {
-    &:not(&--active):hover {
+    &:where([href]):not(&--active):hover {
       color: #{$color-white};
     }
   }
