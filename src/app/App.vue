@@ -19,6 +19,7 @@ onMounted(async () => {
 
 <style scoped lang="scss">
 h1 {
+  font-size: 40rem;
   color: $color-main;
 }
 </style>
