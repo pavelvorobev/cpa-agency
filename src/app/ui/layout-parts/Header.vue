@@ -31,8 +31,8 @@ import { UiLink } from "@/common/ui";
 
 .app-header {
   &__logo {
-    width: 2.813rem;
-    height: 2.572rem;
+    width: 22.5rem;
+    height: 20.58rem;
   }
 
   &__content {
