@@ -8,12 +8,9 @@ interface Props {
   height?: number | string // number value in rem
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  size: 20,
-  width: undefined,
-  height: undefined,
-  color: undefined,
-})
+const {
+  size = 20
+} = defineProps<Props>()
 </script>
 
 <template>
@@ -25,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
       fill: color ?? 'currentColor'
     }"
   >
-    <use :href="`#icon-${props.name}`" />
+    <use :href="`#icon-${name}`" />
   </svg>
 </template>
 
