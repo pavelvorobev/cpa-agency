@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Header from '@/app/ui/layout-parts/Header.vue'
 import { http } from '@/common/api/http'
 import { onMounted } from 'vue'
 
@@ -18,7 +19,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>Home Page</h1>
+  <Header />
 </template>
 
 <style lang="scss" scoped>

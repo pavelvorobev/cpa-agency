@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { UiLink } from "@/common/ui";
+import { UiIcon, UiLink } from "@/common/ui";
 </script>
 
 <template>
   <header class="app-header">
     <div class="app-header__content container">
-        <div class="app-header__logo">Logo</div>
+        <div class="app-header__logo">
+          <UiIcon name="main-logo" width="22.5" height="20.58" />
+        </div>
         <div class="app-header__main">
             <nav class="app-header__nav">
                 <ul>
@@ -26,13 +28,12 @@ import { UiLink } from "@/common/ui";
 
 <style scoped lang="scss">
 .navigation-link {
-    padding: 0.625rem;
+    padding: 5rem;
 }
 
 .app-header {
   &__logo {
-    width: 22.5rem;
-    height: 20.58rem;
+    color: #{$color-white};
   }
 
   &__content {
