@@ -18,12 +18,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <h1>Home Page</h1>
+  <h1 class="heading-1 homepage-heading">Home Page</h1>
 </template>
 
-<style lang="scss" scoped>
-h1 {
-  font-size: 20rem;
-  color: $color-main;
-}
-</style>
+<style scoped lang="scss"></style>

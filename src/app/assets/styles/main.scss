@@ -1,6 +1,7 @@
 /* Глобальные стили */
 @use './normalize.scss';
 @use './fonts.scss';
+@use './typography.scss';
 
 html {
   // 1rem = 2px at 1440px viewport (2 / 1440 * 100)
@@ -8,6 +9,21 @@ html {
 }
 
 body {
-  font-family: 'Halvar Breitschrift', Arial, sans-serif;
-  background-color: $color-secondary;
+  font-family: $font-family-base;
+  color: $color-yellow;
+  background-color: $color-primary;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
 }

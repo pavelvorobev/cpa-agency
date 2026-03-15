@@ -1,0 +1,47 @@
+/* Классы типографики: подключать где нужно (heading-1, title-3 и т.д.) */
+@use './mixins.scss' as *;
+
+.heading-1 {
+  @include text-style-type('heading-1');
+}
+
+.heading-2 {
+  @include text-style-type('heading-2');
+}
+
+.heading-3,
+.title-3 {
+  @include text-style-type('heading-3');
+}
+
+.body {
+  @include text-style-type('body');
+}
+
+.title-marquee {
+  @include text-style-type('marquee');
+}
+
+.button-lg {
+  @include text-style-type('button-lg');
+}
+
+.button-xl {
+  @include text-style-type('button-xl');
+}
+
+.button-text-20 {
+  @include text-style-type('button-text-20');
+}
+
+.button-text-23 {
+  @include text-style-type('button-text-23');
+}
+
+.input-16 {
+  @include text-style-type('input-16');
+}
+
+.input-14 {
+  @include text-style-type('input-14');
+}

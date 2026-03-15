@@ -1,3 +1,47 @@
-/* Переменные */
-$color-main: #fee97d;
-$color-secondary: #9e13e0;
+@use 'sass:math';
+
+/* Цвета */
+$color-dark: #14091a;
+$color-yellow: #fee97d;
+$color-primary: #9e13e0;
+$color-white: #ffffff;
+$color-secondary: #0c090e;
+
+/* Шрифты и оформление */
+$font-family-base: 'Halvar Breitschrift', Arial, sans-serif;
+
+// Начертание
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$rem-base-px: 2;
+
+// Вспомогательные функции
+@function fs($px) {
+  @return math.div($px, $rem-base-px) * 1rem;
+}
+
+@function tracking-in-px($tracking-in-px, $font-size-px) {
+  @return math.div($tracking-in-px, $font-size-px) * 1em;
+}
+
+@function tracking-in-percent($percent) {
+  @return math.div($percent, 100) * 1em;
+}
+
+/* Font size tokens */
+$fs-14: fs(14);
+$fs-16: fs(16);
+$fs-20: fs(20);
+$fs-23: fs(23);
+$fs-24: fs(24);
+$fs-28: fs(28);
+$fs-32: fs(32);
+$fs-35: fs(35);
+$fs-40: fs(40);
+$fs-50: fs(50);
+$fs-70: fs(70);
+$fs-80: fs(80);
