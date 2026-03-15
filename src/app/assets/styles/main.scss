@@ -1,7 +1,7 @@
 /* Глобальные стили */
 @use './normalize.scss';
 @use './fonts.scss';
-@use './variables.scss' as vars;
+@use './typography.scss';
 
 html {
   // 1rem = 2px at 1440px viewport (2 / 1440 * 100)
@@ -9,39 +9,13 @@ html {
 }
 
 body {
-  font-family: vars.$font-family-base;
-  color: vars.$color-yellow;
-  background-color: vars.$color-primary;
+  font-family: $font-family-base;
+  color: $color-yellow;
+  background-color: $color-primary;
 }
 
 :root {
   color-scheme: dark;
-}
-
-h1 {
-  @include vars.text-style(
-    vars.$typo-h1-size,
-    vars.$typo-h1-line-height,
-    vars.$typo-h1-weight,
-    vars.$typo-h1-letter-spacing
-  );
-}
-
-h2 {
-  @include vars.text-style(vars.$typo-h2-size, vars.$typo-h2-line-height, vars.$typo-h2-weight);
-}
-
-h3 {
-  @include vars.text-style(
-    vars.$typo-h3-size,
-    vars.$typo-h3-line-height,
-    vars.$typo-h3-weight,
-    vars.$typo-h3-letter-spacing
-  );
-}
-
-p {
-  @include vars.text-style(vars.$typo-p-size, vars.$typo-p-line-height, vars.$typo-p-weight);
 }
 
 button {
