@@ -1,1 +1,1 @@
-export { default as UiLink } from './UiLink.vue';
+export { default as UiIcon } from './UiIcon.vue';
