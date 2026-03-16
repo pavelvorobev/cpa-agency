@@ -14,6 +14,27 @@ defineProps<UiLinkProps>()
   </a>
 </template>
 
+<style lang="scss">
+.ui-link {
+  color: #{$color-yellow};
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 20rem;
+  transition: color 0.15s ease-in-out;
+
+  &--active {
+    color: #{$color-white};
+  }
+  
+  @media (hover: hover) {
+    &:where([href]):not(&--active):hover {
+      color: #{$color-white};
+    }
+  }
+}
+</style>
+
 <style scoped lang="scss">
 .ui-link {
   cursor: pointer;
