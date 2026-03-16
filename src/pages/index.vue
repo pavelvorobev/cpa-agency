@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Header from '@/app/ui/layout-parts/Header.vue'
 import { http } from '@/common/api/http'
+import { UiContainer } from '@/common/ui'
 import { onMounted } from 'vue'
 
 defineOptions({
@@ -19,12 +20,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Header />
+  <UiContainer>
+    <Header />
+  </UiContainer>
 </template>
 
-<style lang="scss" scoped>
-h1 {
-  font-size: 20rem;
-  color: $color-main;
-}
-</style>
+<style scoped lang="scss"></style>

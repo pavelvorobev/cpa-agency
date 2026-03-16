@@ -35,6 +35,7 @@ export default defineConfig({
       scss: {
         additionalData: `
           @use "@/app/assets/styles/_variables.scss" as *;
+          @use "@/app/assets/styles/_mixins.scss" as *;
         `
       },
     },
