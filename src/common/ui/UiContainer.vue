@@ -22,7 +22,7 @@ defineProps<Props>()
   }
 
   @media (width < 768px) {
-    --side-offset: 29.4rem;
+    --side-offset: 8rem;
   }
 }
 .container {
