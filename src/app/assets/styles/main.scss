@@ -4,8 +4,14 @@
 @use './typography.scss';
 
 html {
+  --rem-size: 0.13889vw;
+  
   // 1rem = 2px at 1440px viewport (2 / 1440 * 100)
-  font-size: 0.13889vw;
+  font-size: var(--rem-size);
+
+  @media (width < 768px) {
+    --rem-size: 0.50890vw;
+  }
 }
 
 body {
@@ -26,8 +32,4 @@ input,
 textarea,
 select {
   font-family: inherit;
-}
-
-.container {
-  padding-inline: 1.875rem;
 }
