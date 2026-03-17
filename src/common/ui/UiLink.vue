@@ -20,7 +20,7 @@ defineProps<UiLinkProps>()
   text-transform: uppercase;
   text-decoration: underline;
   font-weight: 600;
-  font-size: 20rem;
+  font-size: 10rem;
   transition: color 0.15s ease-in-out;
 
   &--active {
