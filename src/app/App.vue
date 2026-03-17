@@ -1,8 +1,4 @@
-<script setup lang="ts">
-import { initDisplay } from '@/common/composables';
-
-initDisplay()
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <RouterView />
