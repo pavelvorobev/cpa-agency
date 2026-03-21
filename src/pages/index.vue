@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { http } from '@/common/api/http'
-import { UiContainer } from '@/common/ui'
+import { CubicButton, UiContainer } from '@/common/ui'
 import { onMounted } from 'vue'
 
 defineOptions({
@@ -21,6 +21,7 @@ onMounted(async () => {
 <template>
   <UiContainer>
     <h1 class="heading-1 homepage-heading">Home Page</h1>
+    <CubicButton size="md">Get</CubicButton>
   </UiContainer>
 </template>
 
