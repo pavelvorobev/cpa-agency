@@ -19,8 +19,10 @@ defineProps<Props>()
 $side-offset: 25rem;
 
 .container {
+  box-sizing: border-box;
   width: 100%;
-  max-width: calc(100dvw - #{$side-offset} * 2);
+  /* min(100%, …) — не шире родителя; иначе 100dvw + скроллбар даёт лишний горизонтальный скролл */
+  max-width: min(100%, calc(100dvw - #{$side-offset} * 2));
   margin-inline: auto;
 }
 </style>
