@@ -4,7 +4,7 @@ import { computed, onMounted, onUnmounted, watch } from 'vue'
 import gridRaw from '@/app/assets/icons/bg-grid.svg?raw'
 
 defineOptions({
-  name: 'MultiplyGridIllumination',
+  name: 'UiGridIllumination',
 })
 
 /** Размер эллипса как % полуосей от viewBox (1463×1313) */
@@ -60,7 +60,7 @@ const props = withDefaults(
     easing?: string
   }>(),
   {
-    spotSize: 'sm',
+    spotSize: 'md',
     durationMs: 2200,
     pauseMinMs: 600,
     pauseMaxMs: 1400,
@@ -74,7 +74,7 @@ const VB_H = 1313
 // Уникальное имя анимации для изоляции экземпляров компонента
 const uid = Math.random().toString(36).slice(2, 8)
 const animName = `spot-${uid}`
-const animClass = `mgi-${uid}`
+const animClass = `ugi-${uid}`
 
 let styleEl: HTMLStyleElement | null = null
 
@@ -91,9 +91,7 @@ function buildCSS(): string {
   let kf = `@keyframes ${animName} {\n`
   for (let i = 0; i < n; i++) {
     const [x, y] = WAYPOINTS[i]
-    // Момент прибытия (= начало паузы)
     const arriveMs = i * (segMs + pauseMs)
-    // Момент отправления (= конец паузы, начало движения к следующей точке)
     const departMs = arriveMs + pauseMs
     kf += `  ${pct(arriveMs)}% { --spot-x: ${x}%; --spot-y: ${y}%; }\n`
     if (pauseMs > 0) {
@@ -143,7 +141,7 @@ const cssVars = computed(() => ({
 
 <template>
   <svg
-    class="multiply-grid-illumination"
+    class="ui-grid-illumination"
     xmlns="http://www.w3.org/2000/svg"
     :viewBox="`0 0 ${VB_W} ${VB_H}`"
     :style="cssVars"
@@ -152,7 +150,7 @@ const cssVars = computed(() => ({
     height="100%"
     aria-hidden="true"
   >
-    <g :class="['multiply-grid-illumination__lit', animClass]" v-html="gridInnerBright" />
+    <g :class="['ui-grid-illumination__lit', animClass]" v-html="gridInnerBright" />
   </svg>
 </template>
 
@@ -174,11 +172,11 @@ const cssVars = computed(() => ({
   initial-value: 22%;
 }
 
-.multiply-grid-illumination {
+.ui-grid-illumination {
   display: block;
 }
 
-.multiply-grid-illumination__lit {
+.ui-grid-illumination__lit {
   $gradient: radial-gradient(
     ellipse var(--spot-rx, 20%) var(--spot-ry, 14%) at var(--spot-x) var(--spot-y),
     rgba(255, 255, 255, 0.9) 0%,
@@ -198,7 +196,7 @@ const cssVars = computed(() => ({
   -webkit-mask-position: 0 0;
 }
 
-.multiply-grid-illumination__lit :deep(path) {
+.ui-grid-illumination__lit :deep(path) {
   stroke: #ffffff !important;
   stroke-width: 2px;
   stroke-miterlimit: 10;

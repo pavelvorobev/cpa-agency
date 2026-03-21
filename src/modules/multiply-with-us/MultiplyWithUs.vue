@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { UiContainer } from '@/common/ui'
+import { RoundedButton, UiContainer, UiGridIllumination, UiIcon } from '@/common/ui'
 
 import { useMultiplySection } from './model/useMultiplySection'
-import CategoryNav from './ui/CategoryNav.vue'
 import InfoCard from './ui/InfoCard.vue'
-import MultiplyGridIllumination from './ui/MultiplyGridIllumination.vue'
 import SectionFooter from './ui/SectionFooter.vue'
 import SectionHeader from './ui/SectionHeader.vue'
 import SnakeFigure from './ui/SnakeFigure.vue'
@@ -23,7 +21,7 @@ function onJoin() {
 
 <template>
   <section class="multiply-with-us" aria-labelledby="multiply-with-us-title">
-    <MultiplyGridIllumination class="multiply-with-us__grid" />
+    <UiGridIllumination class="multiply-with-us__grid" />
 
     <div class="multiply-with-us__snake">
       <SnakeFigure />
@@ -37,7 +35,26 @@ function onJoin() {
 
         <div class="multiply-with-us__body">
           <div class="multiply-with-us__left">
-            <CategoryNav :categories="categories" :active-id="activeId" @select="selectCategory" />
+            <nav class="multiply-category-nav" aria-label="Audience">
+              <ul class="multiply-category-nav__list">
+                <li
+                  v-for="item in categories"
+                  :key="item.id"
+                  class="multiply-category-nav__item"
+                >
+                  <RoundedButton
+                    :active="item.id === activeId"
+                    :aria-current="item.id === activeId ? 'true' : undefined"
+                    @click="selectCategory(item.id)"
+                  >
+                    <span class="multiply-category-nav__label">{{ item.label }}</span>
+                    <span class="multiply-category-nav__arrow" aria-hidden="true">
+                      <UiIcon name="arrow-right" fit />
+                    </span>
+                  </RoundedButton>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <div class="multiply-with-us__right">
@@ -135,6 +152,43 @@ function onJoin() {
   flex-direction: column;
   align-self: start;
   min-width: 0;
+}
+
+.multiply-category-nav {
+  width: max-content;
+  max-width: 100%;
+}
+
+.multiply-category-nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: #{fs(20)};
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.multiply-category-nav__item {
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.multiply-category-nav__label {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.multiply-category-nav__arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  line-height: 0;
+  color: inherit;
+  width: 1.75em;
+  aspect-ratio: 52 / 23;
 }
 
 .multiply-with-us__right {
