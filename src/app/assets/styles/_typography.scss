@@ -1,47 +1,48 @@
 /* Классы типографики: подключать где нужно (heading-1, title-3 и т.д.) */
 @use './mixins.scss' as *;
+@use './variables.scss' as *;
 
 .heading-1 {
-  @include text-style-type('heading-1');
+  @include text-style($fs-80, 0.9, $font-weight-bold, tracking-in-px(-1.74, 80));
 }
 
 .heading-2 {
-  @include text-style-type('heading-2');
+  @include text-style($fs-50, $fs-50, $font-weight-bold);
 }
 
 .heading-3,
 .title-3 {
-  @include text-style-type('heading-3');
+  @include text-style($fs-40, 0.9, $font-weight-bold, tracking-in-px(-1.74, 40));
 }
 
 .body {
-  @include text-style-type('body');
+  @include text-style($fs-20, $fs-24, $font-weight-regular);
 }
 
 .title-marquee {
-  @include text-style-type('marquee');
+  @include text-style($fs-70, normal, $font-weight-light);
 }
 
 .button-lg {
-  @include text-style-type('button-lg');
+  @include text-style($fs-24, normal, $font-weight-semibold, tracking-in-percent(10));
 }
 
 .button-xl {
-  @include text-style-type('button-xl');
+  @include text-style($fs-32, $fs-24, $font-weight-bold);
 }
 
 .button-text-20 {
-  @include text-style-type('button-text-20');
+  @include text-style($fs-20, normal, $font-weight-bold);
 }
 
 .button-text-23 {
-  @include text-style-type('button-text-23');
+  @include text-style($fs-23, normal, $font-weight-bold);
 }
 
 .input-16 {
-  @include text-style-type('input-16');
+  @include text-style($fs-16, normal, $font-weight-bold);
 }
 
 .input-14 {
-  @include text-style-type('input-14');
+  @include text-style($fs-14, normal, $font-weight-bold);
 }
