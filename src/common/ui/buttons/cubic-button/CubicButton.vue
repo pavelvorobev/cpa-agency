@@ -183,7 +183,7 @@ const sizeClass = computed(() => `cubic-button--${props.size}`)
 .cubic-button--md .cubic-button__label {
   font-size: $fs-24;
   line-height: normal;
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-medium;
   color: var(--cubic-label);
   letter-spacing: 0.02em;
   text-transform: uppercase;

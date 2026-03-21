@@ -24,7 +24,7 @@
 }
 
 .button-lg {
-  @include text-style($fs-24, normal, $font-weight-semibold, tracking-in-percent(10));
+  @include text-style($fs-24, normal, $font-weight-medium, tracking-in-percent(10));
 }
 
 .button-xl {
