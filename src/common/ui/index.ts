@@ -1,4 +1,6 @@
 export { default as UiContainer } from './UiContainer.vue'
+export { default as UiGridIllumination } from './UiGridIllumination.vue'
 export { default as UiIcon } from './UiIcon.vue'
 export { default as ScrollToTop } from './ScrollToTop.vue'
+export { default as SectionHeader } from './SectionHeader.vue'
 export * from './buttons'
