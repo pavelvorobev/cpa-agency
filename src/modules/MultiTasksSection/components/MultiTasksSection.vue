@@ -10,12 +10,34 @@ onMounted(async () => {
   sectionData.value = await fetchTasks()
 })
 
-const highlightedDescription = computed(() => {
-  if (!sectionData.value?.description) return ''
-  return sectionData.value.description.replace(
-    /in-house team/gi,
-    '<span class="tasks-section__description-highlight">$&</span>',
-  )
+interface IDescriptionSegment {
+  text: string
+  highlighted: boolean
+}
+
+const descriptionSegments = computed<IDescriptionSegment[]>(() => {
+  const description = sectionData.value?.description
+  if (!description) return []
+
+  const segments: IDescriptionSegment[] = []
+  const pattern = /in-house team/gi
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+
+  while ((match = pattern.exec(description)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ text: description.slice(lastIndex, match.index), highlighted: false })
+    }
+    segments.push({ text: match[0], highlighted: true })
+    lastIndex = pattern.lastIndex
+    if (pattern.lastIndex === match.index) pattern.lastIndex++
+  }
+
+  if (lastIndex < description.length) {
+    segments.push({ text: description.slice(lastIndex), highlighted: false })
+  }
+
+  return segments
 })
 </script>
 <template>
@@ -24,7 +46,15 @@ const highlightedDescription = computed(() => {
       <h2 class="tasks-section__title">MULTI-TASKS</h2>
       <div class="tasks-section__grid">
         <div class="tasks-section__description">
-          <p class="tasks-section__description-text" v-html="highlightedDescription" />
+          <p class="tasks-section__description-text">
+            <template v-for="(segment, index) in descriptionSegments" :key="`${index}-${segment.text}`">
+              <span
+                v-if="segment.highlighted"
+                class="tasks-section__description-highlight"
+              >{{ segment.text }}</span>
+              <template v-else>{{ segment.text }}</template>
+            </template>
+          </p>
           <img
             src="@/app/assets/images/landing/section-2.png"
             alt=""
@@ -96,7 +126,7 @@ const highlightedDescription = computed(() => {
     }
   }
 
-  &__description-text :deep(.tasks-section__description-highlight) {
+  &__description-highlight {
     color: $color-yellow;
   }
 
