@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router'
 
 import snakeSrc from '@/app/assets/images/landing/404.png'
-import { CubicButton, UiGridIllumination } from '@/common/ui'
+import { CubicButton } from '@/common/ui'
 import { ROUTES } from '@/common/constants/routes'
 
 defineOptions({
@@ -18,8 +18,6 @@ function goHome() {
 
 <template>
   <div class="not-found">
-    <UiGridIllumination spot-size="lg" :spot-opacity="0.5" />
-
     <div class="not-found__layout">
       <main class="not-found__main">
         <h1 class="not-found__code">
