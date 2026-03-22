@@ -1,0 +1,107 @@
+.multiply-info-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  font-size: $fs-20;
+  /* отступы от шрифта карточки */
+  gap: 0.8em;
+  padding: 1.6em 1.8em;
+  border-radius: 1.4em;
+  background: $color-primary;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.multiply-info-card__text {
+  margin: 0;
+  max-width: 100%;
+  font-weight: $font-weight-medium;
+  line-height: 1.2;
+  color: $color-white;
+}
+
+.multiply-info-card__text--emphasis {
+  font-weight: $font-weight-bold;
+}
+
+.multiply-info-card__sep {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: calc(2.5em * 23 / 52);
+  height: 2.5em;
+  line-height: 0;
+  color: $color-secondary;
+}
+
+.multiply-info-card__sep-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  aspect-ratio: 52 / 23;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.multiply-info-card--pending {
+  opacity: 0.65;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+@media (max-width: 900px) {
+  .multiply-info-card {
+    font-size: 16px;
+    line-height: 1.35;
+    gap: 12px;
+    padding: 20px 18px;
+    border-radius: 16px;
+  }
+
+  .multiply-info-card__text {
+    line-height: 1.35;
+  }
+
+  .multiply-info-card :deep(.cubic-button.cubic-button--md) {
+    --cubic-inset-top: 6px;
+    --cubic-inset-right: 7px;
+    --cubic-inset-bottom: 2px;
+    --cubic-inset-left: 3px;
+    --cubic-inline-pad: 12px;
+    --cubic-text-pad: 12px;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 60px;
+    height: 60px;
+  }
+
+  .multiply-info-card :deep(.cubic-button--md .cubic-button__label) {
+    font-size: 15px;
+    letter-spacing: 0.03em;
+  }
+
+  .multiply-info-card__sep {
+    width: calc(30px * 23 / 52);
+    height: 30px;
+  }
+
+  .multiply-info-card__sep-inner {
+    width: 30px;
+    height: 30px;
+    aspect-ratio: auto;
+  }
+}

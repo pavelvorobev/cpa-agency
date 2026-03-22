@@ -1,0 +1,219 @@
+/* Full-bleed: секция на ширину вьюпорта, чтобы змея в left/bottom не упиралась в UiContainer */
+.multiply-with-us {
+  position: relative;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  padding-top: #{fs(60)};
+  padding-bottom: max(#{fs(9)}, env(safe-area-inset-bottom, 0px));
+}
+
+/* Макет 1440×900: картинка 613×481.85 — ширина от вьюпорта, высота по пропорции */
+.multiply-with-us__snake {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: calc(100vw * 613 / 1440);
+  max-width: 100%;
+  aspect-ratio: 613 / 481.85;
+  height: auto;
+  pointer-events: none;
+}
+
+.multiply-with-us__inner {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+}
+
+.multiply-with-us__shell {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.multiply-with-us__top {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  margin-bottom: #{fs(32)};
+}
+
+.multiply-with-us__body {
+  display: grid;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+  grid-template-rows: minmax(0, 1fr);
+  gap: #{fs(32)} #{fs(48)};
+  align-items: stretch;
+}
+
+.multiply-with-us__left {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  min-width: 0;
+  min-height: 0;
+}
+
+.multiply-category-nav {
+  width: max-content;
+  max-width: 100%;
+}
+
+.multiply-category-nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: #{fs(20)};
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.multiply-category-nav__item {
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.multiply-category-nav__label {
+  flex: 0 1 auto;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.multiply-category-nav__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  color: inherit;
+  width: #{fs(50)};
+  height: #{fs(50)};
+  flex-shrink: 0;
+}
+
+.multiply-with-us__right {
+  display: flex;
+  flex-direction: column;
+  gap: #{fs(24)};
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.multiply-with-us__right > :deep(.multiply-info-card) {
+  flex: 1 1 0;
+  align-self: stretch;
+  min-height: 0;
+}
+
+.multiply-with-us__title-bottom {
+  display: none;
+  flex-shrink: 0;
+}
+
+.multiply-with-us__footer {
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  z-index: 3;
+}
+
+@media (max-width: 900px) {
+  .multiply-with-us {
+    /* vw-based rem на узкой ширине даёт микроскопические размеры — здесь только px */
+    /* Под фиксированный хедер: полоса бургера 40px + отступ 40px до контента секции */
+    padding-top: calc(40px + 40px + env(safe-area-inset-top, 0px));
+    padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .multiply-with-us__top {
+    display: none;
+  }
+
+  .multiply-with-us__body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch;
+    row-gap: 20px;
+    column-gap: 0;
+  }
+
+  .multiply-with-us__left {
+    grid-row: 1;
+  }
+
+  .multiply-with-us__right {
+    grid-row: 2;
+    min-height: 0;
+    gap: 0;
+  }
+
+  .multiply-category-nav {
+    width: 100%;
+  }
+
+  .multiply-category-nav__list {
+    gap: 12px;
+    align-items: center;
+  }
+
+  .multiply-category-nav__item {
+    width: fit-content;
+  }
+
+  .multiply-category-nav__label {
+    white-space: normal;
+    text-align: left;
+  }
+
+  .multiply-category-nav__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .multiply-with-us__title-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .multiply-with-us__title-bottom :deep(.multiply-section-header) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .multiply-with-us__footer {
+    display: none;
+  }
+
+  .multiply-with-us__snake {
+    display: none;
+  }
+}
