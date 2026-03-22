@@ -18,17 +18,13 @@ function onJoin() {
 </script>
 
 <template>
-  <section class="multiply-with-us" aria-label="Multiply with us">
+  <section class="multiply-with-us" aria-labelledby="multiply-with-us-title">
     <div class="multiply-with-us__snake">
       <SnakeFigure />
     </div>
 
     <div class="multiply-with-us__inner">
       <UiContainer class="multiply-with-us__shell">
-        <header class="multiply-with-us__top">
-          <SectionHeader>Multiply with us</SectionHeader>
-        </header>
-
         <div class="multiply-with-us__body">
           <div class="multiply-with-us__left">
             <nav class="multiply-category-nav" aria-label="Audience">
@@ -57,12 +53,13 @@ function onJoin() {
               :pending="loading"
               @join="onJoin"
             />
-            <header class="multiply-with-us__title-bottom">
-              <SectionHeader>Multiply with us</SectionHeader>
-            </header>
             <UiFooter class="multiply-with-us__footer" />
           </div>
         </div>
+
+        <SectionHeader id="multiply-with-us-title" class="multiply-with-us__title-wrap">
+          Multiply with us
+        </SectionHeader>
       </UiContainer>
     </div>
   </section>

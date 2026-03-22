@@ -60,7 +60,6 @@
 }
 
 @media (max-width: 900px) {
-  /* Фиксированные px: глобальный html font-size завязан на vw и ломает rem/em на мобилке */
   .category-nav-button {
     display: flex;
     flex-direction: row;
