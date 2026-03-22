@@ -1,0 +1,15 @@
+.multi-tasks {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
+}
+
+.multi-tasks__top {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding-top: #{fs(60)};
+  padding-inline: 0;
+}
