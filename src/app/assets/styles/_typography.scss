@@ -3,7 +3,7 @@
 @use './variables.scss' as *;
 
 .heading-1 {
-  @include text-style($fs-80, 0.9, $font-weight-bold, tracking-in-px(-1.74, 80));
+  @include text-style($fs-72, 0.9, $font-weight-bold, tracking-in-px(-1.74, 72));
 }
 
 .heading-2 {
@@ -20,7 +20,7 @@
 }
 
 .title-marquee {
-  @include text-style($fs-70, normal, $font-weight-light);
+  @include text-style($fs-72, normal, $font-weight-light);
 }
 
 .button-lg {
