@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { ROUTES } from "@/common/constants/routes";
+import { SOCIALS } from "@/common/constants/socials";
 import { useDisplayStore } from "@/common/store";
-import { UiContainer, UiIcon, UiLink } from "@/common/ui";
+import { LangSwitcher, UiContainer, UiIcon, UiLink } from "@/common/ui";
 import { computed, ref } from "vue";
 
 interface NavigationLink {
@@ -35,15 +37,11 @@ const closeMenu = () => isOpenMenu.value = false
             <nav class="app-header__nav">
                 <ul>
                   <template v-for="link in navigation" :key="link.url">
-                    <li><UiLink :href="link.url" class="navigation-link">{{ link.text }}</UiLink></li>
+                    <li><UiLink :href="link.url" class="navigation-link navigation-link-size">{{ link.text }}</UiLink></li>
                   </template>
                 </ul>
             </nav>
-            <div class="app-header__lang">
-                <UiLink href="#team">Eng</UiLink>
-                <span class="ui-link">/</span>
-                <UiLink href="#team">Рус</UiLink>
-            </div>
+            <LangSwitcher item-class="navigation-link-size" />
           </template>
         </div>
     </div>
@@ -62,15 +60,40 @@ const closeMenu = () => isOpenMenu.value = false
         
         <nav class="mobile-menu__nav">
             <ul>
+              <li><UiLink :href="ROUTES.HOME" class="navigation-link navigation-link-size">Main</UiLink></li>
               <template v-for="link in navigation" :key="link.url">
-                <li><UiLink :href="link.url" class="navigation-link">{{ link.text }}</UiLink></li>
+                <li><UiLink :href="link.url" class="navigation-link navigation-link-size">{{ link.text }}</UiLink></li>
               </template>
             </ul>
         </nav>
+
+        <div class="mobile-menu__socials">
+          <template v-for="(socialItem) in Object.values(SOCIALS)">
+            <a :href="socialItem.url" class="social-item">
+              <UiIcon
+                :name="socialItem.icon"
+              />
+            </a>
+          </template>
+        </div>
+        
+        <div class="mobile-menu__lang">
+          <LangSwitcher item-class="navigation-link-size" />
+        </div>
       </UiContainer>
     </div>
   </Transition>
 </template>
+
+<style lang="scss">
+.navigation-link-size {
+  font-size: 10rem;
+
+  @media (width <= 1280px) {
+    font-size: 16rem;
+  }
+}
+</style>
 
 <style scoped lang="scss">
 .tr-menu-enter-active,
@@ -109,8 +132,7 @@ const closeMenu = () => isOpenMenu.value = false
     ul {
         display: flex;
         align-items: center;
-        list-style-position: inside;
-        list-style-type: none;
+        list-style: none;
         gap: 1.25rem;
     }
   }
@@ -133,11 +155,11 @@ const closeMenu = () => isOpenMenu.value = false
   height: 100dvh;
   width: 100%;
   max-width: 100dvw;
-  // background-color: #{$color-primary};
-  background-color: skyblue;
+  background: linear-gradient(142deg, #9500dc 0%, #560080 56.41%, #220032 100%), #560080;
   padding: 0;
   inset: 0;
   will-change: transform;
+  overflow: auto;
 
   &__logo {
     color: #{$color-white};
@@ -157,5 +179,33 @@ const closeMenu = () => isOpenMenu.value = false
     color: #{$color-yellow};
     padding: 4rem;
   }
+
+  &__nav {
+    ul {
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20rem;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15rem;
+    margin-block-start: 25rem;
+  }
+
+  &__lang {
+    margin-top: 31rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.social-item {
+  color: #{$color-white};
 }
 </style>
