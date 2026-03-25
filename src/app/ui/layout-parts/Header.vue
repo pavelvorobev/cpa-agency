@@ -49,44 +49,46 @@ const closeMenu = () => isOpenMenu.value = false
   </header>
   <Transition name="tr-menu">
     <div v-show="isOpenMenu" class="mobile-menu">
-      <div class="mobile-menu__bg">
-        <div class="mobile-menu__bg-fill"></div>
-        <img class="mobile-menu__bg-grid" :src="bgGrid" alt="">
-      </div>
-
-      <UiContainer>
-        <div class="mobile-menu__header">
-          <div class="mobile-menu__logo">
-            <UiIcon name="main-logo" width="22" height="20" />
+        <div class="mobile-menu__wrapper">
+          <div class="mobile-menu__bg">
+            <div class="mobile-menu__bg-fill"></div>
+            <img class="mobile-menu__bg-grid" :src="bgGrid" alt="">
           </div>
-          <button class="mobile-menu__close button-text-20" @click="closeMenu">
-            X
-          </button>
-        </div>
-        
-        <nav class="mobile-menu__nav">
-            <ul>
-              <li><UiLink :href="ROUTES.HOME" class="navigation-link navigation-link-size">Main</UiLink></li>
-              <template v-for="link in navigation" :key="link.url">
-                <li><UiLink :href="link.url" class="navigation-link navigation-link-size">{{ link.text }}</UiLink></li>
-              </template>
-            </ul>
-        </nav>
 
-        <div class="mobile-menu__socials">
-          <template v-for="(socialItem) in Object.values(SOCIALS)">
-            <a :href="socialItem.url" class="social-item">
-              <UiIcon
-                :name="socialItem.icon"
-              />
-            </a>
-          </template>
+          <UiContainer class="mobile-menu__content">
+            <div class="mobile-menu__header">
+              <div class="mobile-menu__logo">
+                <UiIcon name="main-logo" width="22" height="20" />
+              </div>
+              <button class="mobile-menu__close button-text-20" @click="closeMenu">
+                X
+              </button>
+            </div>
+            
+            <nav class="mobile-menu__nav">
+              <ul>
+                <li><UiLink :href="ROUTES.HOME" class="navigation-link navigation-link-size">Main</UiLink></li>
+                <template v-for="link in navigation" :key="link.url">
+                  <li><UiLink :href="link.url" class="navigation-link navigation-link-size">{{ link.text }}</UiLink></li>
+                </template>
+              </ul>
+            </nav>
+
+            <div class="mobile-menu__socials">
+              <template v-for="(socialItem) in Object.values(SOCIALS)">
+                <a :href="socialItem.url" class="social-item">
+                  <UiIcon
+                    :name="socialItem.icon"
+                  />
+                </a>
+              </template>
+            </div>
+            
+            <div class="mobile-menu__lang">
+              <LangSwitcher item-class="navigation-link-size" />
+            </div>
+          </UiContainer>
         </div>
-        
-        <div class="mobile-menu__lang">
-          <LangSwitcher item-class="navigation-link-size" />
-        </div>
-      </UiContainer>
     </div>
   </Transition>
 </template>
@@ -170,6 +172,11 @@ const closeMenu = () => isOpenMenu.value = false
   will-change: transform;
   overflow: auto;
 
+  &__wrapper {
+    position: relative;
+    min-height: 100%;
+  }
+
   &__logo {
     color: #{$color-white};
   }
@@ -196,6 +203,7 @@ const closeMenu = () => isOpenMenu.value = false
       display: flex;
       flex-direction: column;
       gap: 20rem;
+      list-style: none;
     }
   }
 
@@ -231,6 +239,10 @@ const closeMenu = () => isOpenMenu.value = false
       inset: 0;
       z-index: 1;
     }
+  }
+
+  &__content {
+    padding-block-end: 10rem;
   }
 }
 
