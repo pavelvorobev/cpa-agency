@@ -10,8 +10,8 @@ defineProps<Props>()
 
 <template>
   <div>
-      <UiLink href="#team" :class="itemClass">Eng</UiLink>
+      <UiLink href="#en" :class="itemClass">Eng</UiLink>
       <span class="ui-link" :class="itemClass">/</span>
-      <UiLink href="#team" :class="itemClass">Рус</UiLink>
+      <UiLink href="#ru" :class="itemClass">Рус</UiLink>
   </div>
 </template>

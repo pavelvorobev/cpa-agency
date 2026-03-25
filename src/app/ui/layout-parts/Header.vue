@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import bgGrid from "@/app/assets/icons/bg-grid.svg";
 import { ROUTES } from "@/common/constants/routes";
 import { SOCIALS } from "@/common/constants/socials";
 import { useDisplayStore } from "@/common/store";
@@ -48,6 +49,11 @@ const closeMenu = () => isOpenMenu.value = false
   </header>
   <Transition name="tr-menu">
     <div v-show="isOpenMenu" class="mobile-menu">
+      <div class="mobile-menu__bg">
+        <div class="mobile-menu__bg-fill"></div>
+        <img class="mobile-menu__bg-grid" :src="bgGrid" alt="">
+      </div>
+
       <UiContainer>
         <div class="mobile-menu__header">
           <div class="mobile-menu__logo">
@@ -116,6 +122,10 @@ const closeMenu = () => isOpenMenu.value = false
 }
 
 .app-header {
+  position: fixed;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  width: 100dvw;
   padding-block: 5rem;
 
   &__logo {
@@ -155,7 +165,6 @@ const closeMenu = () => isOpenMenu.value = false
   height: 100dvh;
   width: 100%;
   max-width: 100dvw;
-  background: linear-gradient(142deg, #9500dc 0%, #560080 56.41%, #220032 100%), #560080;
   padding: 0;
   inset: 0;
   will-change: transform;
@@ -202,6 +211,26 @@ const closeMenu = () => isOpenMenu.value = false
     margin-top: 31rem;
     display: flex;
     justify-content: center;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+
+    &-fill {
+      background: linear-gradient(142deg, #9500dc 0%, #560080 56.41%, #220032 100%), #560080;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    &-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
   }
 }
 
