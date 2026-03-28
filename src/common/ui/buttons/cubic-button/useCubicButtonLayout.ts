@@ -4,7 +4,7 @@ import {
   buildCubicFramePath,
   buildCubicSurfacePaths,
   createCubicPathScaler,
-} from './cubicButtonPaths.ts'
+} from './cubicButtonPaths'
 
 /** Имена CSS-переменных должны совпадать с `CubicButton.vue` -> `<style>` */
 const CSS = {
