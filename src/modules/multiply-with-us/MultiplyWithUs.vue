@@ -10,10 +10,14 @@ defineOptions({
   name: 'MultiplyWithUs',
 })
 
+const emit = defineEmits<{
+  (e: 'join'): void
+}>()
+
 const { activeId, categories, content, ctaLabel, selectCategory, loading } = useMultiplySection()
 
 function onJoin() {
-  console.info('[MultiplyWithUs] join CTA')
+  emit('join')
 }
 </script>
 
