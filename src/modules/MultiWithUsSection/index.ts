@@ -1,1 +1,1 @@
-export { default as MultiWithUsSection } from './MultiWithUsSection.vue'
+export { default as MultiWithUsSection } from './components/MultiWithUsSection.vue'

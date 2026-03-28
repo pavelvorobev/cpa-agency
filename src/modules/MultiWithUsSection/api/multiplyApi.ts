@@ -8,7 +8,7 @@ import {
   type MultiplyCategoryContent,
   type MultiplyCategoryId,
   titleToCategoryId,
-} from './categories'
+} from '../types/multiWithUs.types'
 
 export type MultiplyApiBlock = {
   title: string

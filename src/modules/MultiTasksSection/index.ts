@@ -1,1 +1,1 @@
-export { default as MultiTasksSection } from './MultiTasksSection.vue'
+export { default as MultiTasksSection } from './components/MultiTasksSection.vue'

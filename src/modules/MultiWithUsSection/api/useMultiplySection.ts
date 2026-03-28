@@ -5,7 +5,7 @@ import {
   DEFAULT_CATEGORIES,
   FALLBACK_CONTENT,
   type MultiplyCategoryId,
-} from './categories'
+} from '../types/multiWithUs.types'
 import { fetchMultiplyBlocks, parseMultiplyBlocks } from './multiplyApi'
 
 export function useMultiplySection() {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { SectionHeader, UiContainer, UiFooter, UiIcon } from '@/common/ui'
 
-import { useMultiplySection } from './model/useMultiplySection'
-import CategoryNavButton from './ui/CategoryNavButton.vue'
-import InfoCard from './ui/InfoCard.vue'
-import SnakeFigure from './ui/SnakeFigure.vue'
+import { useMultiplySection } from '../api/useMultiplySection'
+import CategoryNavButton from './CategoryNavButton.vue'
+import InfoCard from './InfoCard.vue'
+import SnakeFigure from './SnakeFigure.vue'
 
 defineOptions({
   name: 'MultiWithUsSection',
