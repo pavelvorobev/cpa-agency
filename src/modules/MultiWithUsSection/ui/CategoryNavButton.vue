@@ -1,3 +1,31 @@
+<script setup lang="ts">
+defineOptions({
+  name: 'CategoryNavButton',
+})
+
+withDefaults(
+  defineProps<{
+    active?: boolean
+    type?: 'button' | 'submit' | 'reset'
+  }>(),
+  {
+    active: false,
+    type: 'button',
+  },
+)
+</script>
+
+<template>
+  <button
+    class="category-nav-button"
+    :class="{ 'category-nav-button--active': active }"
+    :type="type"
+  >
+    <slot />
+  </button>
+</template>
+
+<style scoped lang="scss">
 .category-nav-button {
   box-sizing: border-box;
   display: inline-flex;
@@ -37,7 +65,6 @@
     }
   }
 
-  /* Как у .ui-footer__link: белый текст + жёлтая обводка (фокус с клавиатуры) */
   &:focus-visible {
     background: transparent;
     color: $color-white;
@@ -79,13 +106,12 @@
     letter-spacing: 0.03em;
   }
 
-  /* Текст забирает оставшуюся ширину, стрелка 30px справа, между ними gap 4px */
-  .category-nav-button :slotted(.multiply-category-nav__label) {
+  .category-nav-button :slotted(.multi-with-us-category-nav__label) {
     flex: 1 1 auto;
     min-width: 0;
   }
 
-  .category-nav-button :slotted(.multiply-category-nav__arrow) {
+  .category-nav-button :slotted(.multi-with-us-category-nav__arrow) {
     flex: 0 0 30px;
     width: 30px;
     height: 30px;
@@ -101,3 +127,4 @@
     outline-offset: 2px;
   }
 }
+</style>

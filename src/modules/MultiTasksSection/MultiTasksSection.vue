@@ -1,4 +1,22 @@
-.multi-tasks {
+<script setup lang="ts">
+import { SectionHeader } from '@/common/ui'
+
+defineOptions({
+  name: 'MultiTasksSection',
+})
+</script>
+
+<template>
+  <section class="multi-tasks-section" aria-labelledby="multi-tasks-section-title">
+    <div class="multi-tasks-section__backdrop" aria-hidden="true" />
+    <header class="multi-tasks-section__top">
+      <SectionHeader id="multi-tasks-section-title">MULTI-TASKS</SectionHeader>
+    </header>
+  </section>
+</template>
+
+<style scoped lang="scss">
+.multi-tasks-section {
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -8,7 +26,7 @@
   background: transparent;
 }
 
-.multi-tasks__backdrop {
+.multi-tasks-section__backdrop {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -28,7 +46,7 @@
   );
 }
 
-.multi-tasks__top {
+.multi-tasks-section__top {
   position: relative;
   z-index: 1;
   display: flex;
@@ -37,3 +55,4 @@
   padding-top: #{fs(60)};
   padding-inline: 0;
 }
+</style>

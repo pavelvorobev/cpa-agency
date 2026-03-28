@@ -8,4 +8,12 @@ defineOptions({
   <section class="hero" aria-label="Hero" />
 </template>
 
-<style scoped lang="scss" src="./styles/section.scss"></style>
+<style scoped lang="scss">
+.hero {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100dvh;
+  height: 100dvh;
+  max-height: 100dvh;
+}
+</style>
