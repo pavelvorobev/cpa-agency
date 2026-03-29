@@ -1,7 +1,7 @@
-import type { ITasksSection } from '../types/tasks.types'
+import type { TaskSection } from '../types/tasks.types'
 import { http } from '@/common/api/http'
 
-export async function fetchTasks(): Promise<ITasksSection | null> {
+export async function fetchTasks(): Promise<TaskSection | null> {
   try {
     const { data } = await http.get('/en/tasks')
     return data

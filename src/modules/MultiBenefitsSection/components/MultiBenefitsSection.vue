@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { fetchBenefits } from '../api/benefitsApi'
-import type { IBenefitsSection } from '../types/benefits.types'
+import type { BenefitsSection } from '../types/benefits.types'
 import { UiIcon, UiSection, UiContainer } from '@/common/ui'
 import { SectionHeader } from '@/common/ui'
 
-const sectionData = ref<IBenefitsSection | null>(null)
+const sectionData = ref<BenefitsSection | null>(null)
 
 onMounted(async () => {
   sectionData.value = await fetchBenefits()
@@ -13,7 +13,12 @@ onMounted(async () => {
 
 const highlightedTitle = computed(() => {
   if (!sectionData.value?.title) return ''
-  return sectionData.value.title.replace(
+  const escaped = sectionData.value.title
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+  return escaped.replace(
     /guaranteed/gi,
     '<span class="benefits-section__heading-highlight">$&</span>',
   )

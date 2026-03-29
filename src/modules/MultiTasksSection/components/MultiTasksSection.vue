@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { fetchTasks } from '../api/tasksApi'
-import type { ITasksSection } from '../types/tasks.types'
+import type { TaskSection } from '../types/tasks.types'
 import { UiSection, UiContainer } from '@/common/ui'
 import { SectionHeader } from '@/common/ui'
 
-const sectionData = ref<ITasksSection | null>(null)
+const sectionData = ref<TaskSection | null>(null)
 
 onMounted(async () => {
   sectionData.value = await fetchTasks()
@@ -13,7 +13,12 @@ onMounted(async () => {
 
 const highlightedDescription = computed(() => {
   if (!sectionData.value?.description) return ''
-  return sectionData.value.description.replace(
+  const escaped = sectionData.value.description
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+  return escaped.replace(
     /in-house team/gi,
     '<span class="tasks-section__description-highlight">$&</span>',
   )

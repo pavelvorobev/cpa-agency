@@ -1,7 +1,7 @@
-import type { IBenefitsSection } from '../types/benefits.types'
+import type { BenefitsSection } from '../types/benefits.types'
 import { http } from '@/common/api/http'
 
-export async function fetchBenefits(): Promise<IBenefitsSection | null> {
+export async function fetchBenefits(): Promise<BenefitsSection | null> {
   try {
     const { data } = await http.get('/en/benefits')
     return data

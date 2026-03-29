@@ -171,7 +171,7 @@ wbr {
 }
 
 /* Add focus styles to improve accessibility */
-:focus {
+:focus:not(:focus-visible) {
   outline: 0;
 }
 
@@ -197,7 +197,7 @@ canvas,
 iframe {
   max-width: 100%;
   height: auto;
-  display: block
+  display: block;
 }
 
 /* Remove default list styling */

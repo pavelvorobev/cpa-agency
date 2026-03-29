@@ -1,9 +1,9 @@
-export interface ITaskTile {
+export interface TaskTile {
   title: string
   text: string
 }
 
-export interface ITasksSection {
+export interface TaskSection {
   description: string
-  tiles: ITaskTile[]
+  tiles: TaskTile[]
 }
