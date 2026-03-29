@@ -24,7 +24,7 @@ function onJoin() {
 
 <template>
   <UiSection>
-    <section class="multi-with-us" aria-labelledby="multi-with-us-title">
+    <div class="multi-with-us" aria-labelledby="multi-with-us-title">
       <div class="multi-with-us__snake">
         <SnakeFigure />
       </div>
@@ -72,7 +72,7 @@ function onJoin() {
           </SectionHeader>
         </UiContainer>
       </div>
-    </section>
+    </div>
   </UiSection>
 </template>
 
