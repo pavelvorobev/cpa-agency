@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: $font-family-base;
-  color: $color-yellow;
+  color: #{$color-white};
   background-color: $color-primary;
 }
 
@@ -26,4 +26,8 @@ input,
 textarea,
 select {
   font-family: inherit;
+}
+
+.color-yellow {
+  color: #{$color-yellow};
 }

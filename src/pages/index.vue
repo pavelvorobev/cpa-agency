@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { http } from '@/common/api/http'
-import { UiContainer } from '@/common/ui'
+import { SectionOne } from '@/modules/sectionOne'
 import { onMounted } from 'vue'
 
 defineOptions({
@@ -19,9 +19,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <UiContainer>
-    <h1 class="heading-1 homepage-heading">Home Page</h1>
-  </UiContainer>
+  <SectionOne />
 </template>
 
 <style scoped lang="scss"></style>
