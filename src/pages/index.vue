@@ -11,10 +11,8 @@ defineOptions({
 </script>
 
 <template>
-  <UiContainer>
-    <Hero />
-    <MultiTasksSection />
-    <MultiBenefitsSection />
-    <MultiWithUsSection />
-  </UiContainer>
+  <Hero />
+  <MultiTasksSection />
+  <MultiBenefitsSection />
+  <MultiWithUsSection />
 </template>

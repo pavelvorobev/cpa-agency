@@ -5,6 +5,7 @@ import { useMultiplySection } from '../api/useMultiplySection'
 import CategoryNavButton from './CategoryNavButton.vue'
 import InfoCard from './InfoCard.vue'
 import SnakeFigure from './SnakeFigure.vue'
+import { UiSection } from '@/common/ui'
 
 defineOptions({
   name: 'MultiWithUsSection',
@@ -22,51 +23,57 @@ function onJoin() {
 </script>
 
 <template>
-  <section class="multi-with-us" aria-labelledby="multi-with-us-title">
-    <div class="multi-with-us__snake">
-      <SnakeFigure />
-    </div>
+  <UiSection>
+    <section class="multi-with-us" aria-labelledby="multi-with-us-title">
+      <div class="multi-with-us__snake">
+        <SnakeFigure />
+      </div>
 
-    <div class="multi-with-us__inner">
-      <UiContainer class="multi-with-us__shell">
-        <div class="multi-with-us__body">
-          <div class="multi-with-us__left">
-            <nav class="multi-with-us-category-nav" aria-label="Audience">
-              <ul class="multi-with-us-category-nav__list">
-                <li v-for="item in categories" :key="item.id" class="multi-with-us-category-nav__item">
-                  <CategoryNavButton
-                    :active="item.id === activeId"
-                    :aria-current="item.id === activeId ? 'true' : undefined"
-                    @click="selectCategory(item.id)"
+      <div class="multi-with-us__inner">
+        <UiContainer class="multi-with-us__shell">
+          <div class="multi-with-us__body">
+            <div class="multi-with-us__left">
+              <nav class="multi-with-us-category-nav" aria-label="Audience">
+                <ul class="multi-with-us-category-nav__list">
+                  <li
+                    v-for="item in categories"
+                    :key="item.id"
+                    class="multi-with-us-category-nav__item"
                   >
-                    <span class="multi-with-us-category-nav__label">{{ item.label }}</span>
-                    <span class="multi-with-us-category-nav__arrow" aria-hidden="true">
-                      <UiIcon name="arrow-right" fit />
-                    </span>
-                  </CategoryNavButton>
-                </li>
-              </ul>
-            </nav>
+                    <CategoryNavButton
+                      :active="item.id === activeId"
+                      :aria-current="item.id === activeId ? 'true' : undefined"
+                      @click="selectCategory(item.id)"
+                    >
+                      <span class="multi-with-us-category-nav__label">{{ item.label }}</span>
+                      <span class="multi-with-us-category-nav__arrow" aria-hidden="true">
+                        <UiIcon name="arrow-right" fit />
+                      </span>
+                    </CategoryNavButton>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="multi-with-us__right">
+              <InfoCard
+                :lead="content.lead"
+                :highlight="content.highlight"
+                :cta-label="ctaLabel"
+                :pending="loading"
+                @join="onJoin"
+              />
+              <UiFooter class="multi-with-us__footer" />
+            </div>
           </div>
 
-          <div class="multi-with-us__right">
-            <InfoCard
-              :lead="content.lead"
-              :highlight="content.highlight"
-              :cta-label="ctaLabel"
-              :pending="loading"
-              @join="onJoin"
-            />
-            <UiFooter class="multi-with-us__footer" />
-          </div>
-        </div>
-
-        <SectionHeader id="multi-with-us-title" class="multi-with-us__title-wrap">
-          Multiply with us
-        </SectionHeader>
-      </UiContainer>
-    </div>
-  </section>
+          <SectionHeader id="multi-with-us-title" class="multi-with-us__title-wrap">
+            Multiply with us
+          </SectionHeader>
+        </UiContainer>
+      </div>
+    </section>
+  </UiSection>
 </template>
 
 <style scoped lang="scss">
@@ -81,8 +88,8 @@ function onJoin() {
   min-height: 100dvh;
   max-height: 100dvh;
   overflow: hidden;
-  padding-top: #{fs(60)};
-  padding-bottom: max(#{fs(9)}, env(safe-area-inset-bottom, 0px));
+  /* padding-top: #{fs(60)};
+  padding-bottom: max(#{fs(9)}, env(safe-area-inset-bottom, 0px)); */
 }
 
 /* Макет 1440×900: картинка 613×481.85 — ширина от вьюпорта, высота по пропорции */

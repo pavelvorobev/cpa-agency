@@ -4,7 +4,7 @@
   line-height: $line-height;
   font-weight: $weight;
 
-  @if $letter-spacing != null {
+  @if $letter-spacing !=null {
     letter-spacing: $letter-spacing;
   }
 }

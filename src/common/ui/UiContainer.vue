@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-
 interface Props {
   tag?: string
-  class?: HTMLAttributes['class']
 }
 
 defineProps<Props>()
 </script>
 
 <template>
-  <component :is="tag ?? 'div'" class="container" :class="class">
+  <component :is="tag ?? 'div'" class="container">
     <slot />
   </component>
 </template>
 
 <style lang="scss">
-$side-offset: 25rem;
-
 .container {
+  --side-offset: 25rem;
   width: 100%;
-  max-width: calc(100dvw - #{$side-offset} * 2);
+  max-width: calc(100dvw - var(--side-offset) * 2);
   margin-inline: auto;
+
+  @media (max-height: 899px) {
+    --side-offset: 15rem;
+  }
 }
 </style>
