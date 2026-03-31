@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { UiContainer } from '@/common/ui'
 import { Hero } from '@/modules/Hero'
 import { MultiBenefitsSection } from '@/modules/MultiBenefitsSection'
 import { MultiTasksSection } from '@/modules/MultiTasksSection'
@@ -11,10 +10,8 @@ defineOptions({
 </script>
 
 <template>
-  <UiContainer>
-    <Hero />
-    <MultiTasksSection />
-    <MultiBenefitsSection />
-    <MultiWithUsSection />
-  </UiContainer>
+  <Hero />
+  <MultiTasksSection />
+  <MultiBenefitsSection />
+  <MultiWithUsSection />
 </template>
