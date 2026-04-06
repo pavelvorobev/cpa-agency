@@ -23,7 +23,7 @@ function onJoin() {
 </script>
 
 <template>
-  <UiSection>
+  <UiSection no-padding-bottom>
     <div class="multi-with-us" aria-labelledby="multi-with-us-title">
       <div class="multi-with-us__snake">
         <SnakeFigure />
@@ -84,9 +84,8 @@ function onJoin() {
   width: 100vw;
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
-  height: 100dvh;
-  min-height: 100dvh;
-  max-height: 100dvh;
+  height: 100%;
+  min-height: 0;
   overflow: hidden;
   /* padding-top: #{fs(60)};
   padding-bottom: max(#{fs(9)}, env(safe-area-inset-bottom, 0px)); */
